@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banner extends Model
 {
+    //dd
     protected $table = 'cscart_banners';
     protected $primaryKey = 'banner_id';
 
