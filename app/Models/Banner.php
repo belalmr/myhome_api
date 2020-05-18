@@ -12,6 +12,7 @@ class Banner extends Model
 
     protected $guarded = [];
 
+
     public function b_images()
     {
         return $this->hasMany(BannerImage::class, 'banner_id', 'banner_id');
