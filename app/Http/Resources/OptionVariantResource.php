@@ -21,6 +21,5 @@ class OptionVariantResource extends JsonResource
             'modifier' => (double) $this->modifier * 1.6,
             'position' => $this->position,
         ];
-        return parent::toArray($request);
     }
 }

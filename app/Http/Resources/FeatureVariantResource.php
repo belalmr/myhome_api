@@ -20,6 +20,5 @@ class FeatureVariantResource extends JsonResource
 //            'f_v_description' => $this->f_v_description()->where('lang_code', app()->getLocale())->first()->variant,
             'f_v_description' => $this->f_v_description()->first()->variant,
         ];
-        return parent::toArray($request);
     }
 }

@@ -24,8 +24,6 @@ class BannerCollection extends ResourceCollection
 //                'image_y'=> $item->image_y,
             ];
         });
-
-//            return parent::toArray($request);
     }
 }
 

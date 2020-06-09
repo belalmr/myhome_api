@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $table = 'cscart_products';
     protected $primaryKey = 'product_id';
+    protected $appends = ['images'];
 
     protected $guarded = [];
 
@@ -39,9 +40,21 @@ class Product extends Model
         return $this->hasOne(ProductSale::class, 'product_id', 'product_id');
     }
 
+    public function session_product(){
+        return $this->hasMany(UserSessionProduct::class, 'product_id', 'product_id');
+    }
 
-//    public static function pricebeg(){
-//        return Product::where('cscart_products.list_price','>','cscart_product_prices.price')
-//            ->first()->list_price;
-//    }
+    public function category(){
+        return $this->hasMany(ProductCategory::class, 'product_id', 'product_id');
+    }
+
+    public function company(){
+        return $this->belongsTo(Company::class, 'company_id', 'company_id');
+    }
+
+    public function getImagesAttribute(){
+        $image = ImageLink::where('object_id', $this->product_id)->pluck('detailed_id')->toArray();
+        return Image::whereIn('image_id', $image)->get();
+    }
+
 }

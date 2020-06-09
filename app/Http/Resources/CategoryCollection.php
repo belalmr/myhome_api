@@ -17,15 +17,13 @@ class CategoryCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-//        return app()->getLocale();
         return $this->collection->map(function ($item) {
             return [
                 'category_id' => $item->category_id,
+                'parent_id' => $item->parent_id,
                 'title' => $item->c_description->where('lang_code', app()->getLocale())->first()->category,
                 'image' => 'https://my-home.co/design/themes/bigbazaar/media/mainicons/'.$item->category_id.'.png'
             ];
         });
-
-        return parent::toArray($request);
     }
 }

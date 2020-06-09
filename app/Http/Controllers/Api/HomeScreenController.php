@@ -54,6 +54,12 @@ class HomeScreenController extends Controller
 
     }
 
+    public function recentlyArrived()
+    {
+        $products = Product::where('status', 'A')->orderBy('timestamp', 'DESC')->paginate();
+        return $this->successJsonResponse([], new ProductCollection($products->items()), 'Product', $products);
+    }
+
     public function homeSlider()
     {
         $banner = DB::table('cscart_banners')

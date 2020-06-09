@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('payment', 'Api\PaymentController@check_payment')->name('payment.show');
+Route::get('api/get_checkout_user_id/{user_id}', 'Api\PaymentController@get_checkout_user_id');

@@ -10,13 +10,7 @@ class ImageLink extends Model
     protected $primaryKey = 'pair_id';
 
     protected $guarded = [];
-//pair_id
-//object_id
-//object_type
-//image_id
-//detailed_id
-//type
-//position
+
     public function images()
     {
         return $this->belongsTo(Image::class, 'detailed_id', 'image_id');

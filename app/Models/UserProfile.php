@@ -13,9 +13,9 @@ class UserProfile extends Model
 
     protected $guarded = [];
 
-    public function product(){
-        return $this->belongsTo(User::class,'user_id','user_id');
-    }
+//    public function product(){
+////        return $this->belongsTo(User::class,'user_id','user_id');
+////    }
 
 //    profile_id
 //    user_id
